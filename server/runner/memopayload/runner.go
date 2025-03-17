@@ -10,8 +10,8 @@ import (
 	"github.com/usememos/gomark/parser"
 	"github.com/usememos/gomark/parser/tokenizer"
 
-	storepb "github.com/usememos/memos/proto/gen/store"
-	"github.com/usememos/memos/store"
+	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
+	"github.com/Robert-Stackflow/memos/store"
 )
 
 type Runner struct {

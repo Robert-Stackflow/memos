@@ -10,8 +10,8 @@ import (
 	"github.com/usememos/gomark/renderer"
 	"github.com/usememos/gomark/restore"
 
-	"github.com/usememos/memos/plugin/httpgetter"
-	v1pb "github.com/usememos/memos/proto/gen/api/v1"
+	"github.com/Robert-Stackflow/memos/plugin/httpgetter"
+	v1pb "github.com/Robert-Stackflow/memos/proto/gen/api/v1"
 )
 
 func (*APIV1Service) ParseMarkdown(_ context.Context, request *v1pb.ParseMarkdownRequest) (*v1pb.ParseMarkdownResponse, error) {

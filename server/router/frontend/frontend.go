@@ -9,9 +9,9 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"github.com/usememos/memos/internal/util"
-	"github.com/usememos/memos/server/profile"
-	"github.com/usememos/memos/store"
+	"github.com/Robert-Stackflow/memos/internal/util"
+	"github.com/Robert-Stackflow/memos/server/profile"
+	"github.com/Robert-Stackflow/memos/store"
 )
 
 //go:embed dist/*

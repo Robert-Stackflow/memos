@@ -12,9 +12,9 @@ import (
 	"github.com/usememos/gomark"
 	"github.com/usememos/gomark/renderer"
 
-	storepb "github.com/usememos/memos/proto/gen/store"
-	"github.com/usememos/memos/server/profile"
-	"github.com/usememos/memos/store"
+	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
+	"github.com/Robert-Stackflow/memos/server/profile"
+	"github.com/Robert-Stackflow/memos/store"
 )
 
 const (

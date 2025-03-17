@@ -8,8 +8,8 @@ import (
 	"google.golang.org/grpc/status"
 
 	v1pb "proto/gen/api/v1"
-	storepb "github.com/usememos/memos/proto/gen/store"
-	"github.com/usememos/memos/store"
+	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
+	"github.com/Robert-Stackflow/memos/store"
 )
 
 func (s *APIV1Service) GetWorkspaceSetting(ctx context.Context, request *v1pb.GetWorkspaceSettingRequest) (*v1pb.WorkspaceSetting, error) {
