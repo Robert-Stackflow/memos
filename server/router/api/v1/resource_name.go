@@ -6,7 +6,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/Robert-Stackflow/memos/internal/util"
+	"github.com/usememos/memosinternal/util"
 )
 
 const (

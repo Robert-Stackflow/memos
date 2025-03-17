@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/status"
 
-	"github.com/Robert-Stackflow/memos/store"
+	"github.com/usememos/memosstore"
 )
 
 func (s *APIV1Service) Check(ctx context.Context,

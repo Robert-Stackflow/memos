@@ -8,9 +8,9 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	v1pb "github.com/Robert-Stackflow/memos/proto/gen/api/v1"
-	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
-	"github.com/Robert-Stackflow/memos/store"
+	v1pb "github.com/usememos/memosproto/gen/api/v1"
+	storepb "github.com/usememos/memosproto/gen/store"
+	"github.com/usememos/memosstore"
 )
 
 func (s *APIV1Service) CreateIdentityProvider(ctx context.Context, request *v1pb.CreateIdentityProviderRequest) (*v1pb.IdentityProvider, error) {

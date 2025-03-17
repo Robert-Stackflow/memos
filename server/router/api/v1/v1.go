@@ -14,9 +14,9 @@ import (
 	"google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/reflection"
 
-	v1pb "github.com/Robert-Stackflow/memos/proto/gen/api/v1"
-	"github.com/Robert-Stackflow/memos/server/profile"
-	"github.com/Robert-Stackflow/memos/store"
+	v1pb "github.com/usememos/memosproto/gen/api/v1"
+	"github.com/usememos/memosserver/profile"
+	"github.com/usememos/memosstore"
 )
 
 type APIV1Service struct {

@@ -7,9 +7,9 @@ import (
 
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/Robert-Stackflow/memos/plugin/storage/s3"
-	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
-	"github.com/Robert-Stackflow/memos/store"
+	"github.com/usememos/memosplugin/storage/s3"
+	storepb "github.com/usememos/memosproto/gen/store"
+	"github.com/usememos/memosstore"
 )
 
 type Runner struct {

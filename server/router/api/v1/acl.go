@@ -12,9 +12,9 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"github.com/Robert-Stackflow/memos/internal/util"
-	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
-	"github.com/Robert-Stackflow/memos/store"
+	"github.com/usememos/memosinternal/util"
+	storepb "github.com/usememos/memosproto/gen/store"
+	"github.com/usememos/memosstore"
 )
 
 // ContextKey is the key type of context value.

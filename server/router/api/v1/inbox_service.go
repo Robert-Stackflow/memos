@@ -10,8 +10,8 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	v1pb "github.com/Robert-Stackflow/memos/proto/gen/api/v1"
-	"github.com/Robert-Stackflow/memos/store"
+	v1pb "github.com/usememos/memosproto/gen/api/v1"
+	"github.com/usememos/memosstore"
 )
 
 func (s *APIV1Service) ListInboxes(ctx context.Context, request *v1pb.ListInboxesRequest) (*v1pb.ListInboxesResponse, error) {

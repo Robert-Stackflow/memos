@@ -19,11 +19,11 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/Robert-Stackflow/memos/plugin/webhook"
-	v1pb "github.com/Robert-Stackflow/memos/proto/gen/api/v1"
-	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
-	"github.com/Robert-Stackflow/memos/server/runner/memopayload"
-	"github.com/Robert-Stackflow/memos/store"
+	"github.com/usememos/memosplugin/webhook"
+	v1pb "github.com/usememos/memosproto/gen/api/v1"
+	storepb "github.com/usememos/memosproto/gen/store"
+	"github.com/usememos/memosserver/runner/memopayload"
+	"github.com/usememos/memosstore"
 )
 
 func (s *APIV1Service) CreateMemo(ctx context.Context, request *v1pb.CreateMemoRequest) (*v1pb.Memo, error) {

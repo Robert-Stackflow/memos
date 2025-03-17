@@ -22,11 +22,11 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/Robert-Stackflow/memos/internal/util"
-	"github.com/Robert-Stackflow/memos/plugin/storage/s3"
-	v1pb "github.com/Robert-Stackflow/memos/proto/gen/api/v1"
-	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
-	"github.com/Robert-Stackflow/memos/store"
+	"github.com/usememos/memosinternal/util"
+	"github.com/usememos/memosplugin/storage/s3"
+	v1pb "github.com/usememos/memosproto/gen/api/v1"
+	storepb "github.com/usememos/memosproto/gen/store"
+	"github.com/usememos/memosstore"
 )
 
 const (

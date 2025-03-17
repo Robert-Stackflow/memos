@@ -6,8 +6,8 @@ import (
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/proto"
 
-	v1pb "github.com/Robert-Stackflow/memos/proto/gen/api/v1"
-	"github.com/Robert-Stackflow/memos/store"
+	v1pb "github.com/usememos/memosproto/gen/api/v1"
+	"github.com/usememos/memosstore"
 )
 
 const (

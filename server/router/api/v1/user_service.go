@@ -20,10 +20,10 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/Robert-Stackflow/memos/internal/util"
-	v1pb "github.com/Robert-Stackflow/memos/proto/gen/api/v1"
-	storepb "github.com/Robert-Stackflow/memos/proto/gen/store"
-	"github.com/Robert-Stackflow/memos/store"
+	"github.com/usememos/memosinternal/util"
+	v1pb "github.com/usememos/memosproto/gen/api/v1"
+	storepb "github.com/usememos/memosproto/gen/store"
+	"github.com/usememos/memosstore"
 )
 
 func (s *APIV1Service) ListUsers(ctx context.Context, _ *v1pb.ListUsersRequest) (*v1pb.ListUsersResponse, error) {
