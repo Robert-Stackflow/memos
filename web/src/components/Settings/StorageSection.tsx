@@ -98,6 +98,14 @@ const StorageSection = () => {
     handlePartialS3ConfigChanged({ bucket: event.target.value });
   };
 
+  const handleS3ConfigUrlPrefixChanged = async (event: React.FocusEvent<HTMLInputElement>) => {
+    handlePartialS3ConfigChanged({ urlPrefix: event.target.value });
+  };
+
+  const handleS3ConfigUrlSuffixChanged = async (event: React.FocusEvent<HTMLInputElement>) => {
+    handlePartialS3ConfigChanged({ urlSuffix: event.target.value });
+  };
+
   const handleS3ConfigUsePathStyleChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
     handlePartialS3ConfigChanged({
       usePathStyle: event.target.checked,
@@ -157,28 +165,36 @@ const StorageSection = () => {
       {workspaceStorageSetting.storageType === WorkspaceStorageSetting_StorageType.S3 && (
         <>
           <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-gray-700 dark:text-gray-500 mr-1">Access key id</span>
-            <Input value={workspaceStorageSetting.s3Config?.accessKeyId} placeholder="" onChange={handleS3ConfigAccessKeyIdChanged} />
+            <span className="text-gray-700 dark:text-gray-500 mr-1">{t("setting.storage-section.accesskey")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.accessKeyId} placeholder={t("setting.storage-section.accesskey-placeholder")} onChange={handleS3ConfigAccessKeyIdChanged} />
           </div>
           <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-gray-700 dark:text-gray-500 mr-1">Access key secret</span>
+            <span className="text-gray-700 dark:text-gray-500 mr-1">{t("setting.storage-section.secretkey")}</span>
             <Input
               value={workspaceStorageSetting.s3Config?.accessKeySecret}
-              placeholder=""
+              placeholder={t("setting.storage-section.secretkey-placeholder")}
               onChange={handleS3ConfigAccessKeySecretChanged}
             />
           </div>
           <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-gray-700 dark:text-gray-500 mr-1">Endpoint</span>
+            <span className="text-gray-700 dark:text-gray-500 mr-1">{t("setting.storage-section.endpoint")}</span>
             <Input value={workspaceStorageSetting.s3Config?.endpoint} placeholder="" onChange={handleS3ConfigEndpointChanged} />
           </div>
           <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-gray-700 dark:text-gray-500 mr-1">Region</span>
-            <Input value={workspaceStorageSetting.s3Config?.region} placeholder="" onChange={handleS3ConfigRegionChanged} />
+            <span className="text-gray-700 dark:text-gray-500 mr-1">{t("setting.storage-section.region")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.region} placeholder={t("setting.storage-section.region-placeholder")} onChange={handleS3ConfigRegionChanged} />
           </div>
           <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-gray-700 dark:text-gray-500 mr-1">Bucket</span>
-            <Input value={workspaceStorageSetting.s3Config?.bucket} placeholder="" onChange={handleS3ConfigBucketChanged} />
+            <span className="text-gray-700 dark:text-gray-500 mr-1">{t("setting.storage-section.bucket")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.bucket} placeholder={t("setting.storage-section.bucket-placeholder")} onChange={handleS3ConfigBucketChanged} />
+          </div>
+          <div className="w-full flex flex-row justify-between items-center">
+            <span className="text-gray-700 dark:text-gray-500 mr-1">{t("setting.storage-section.url-prefix")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.urlPrefix} placeholder={t("setting.storage-section.url-prefix-placeholder")} onChange={handleS3ConfigUrlPrefixChanged} />
+          </div>
+          <div className="w-full flex flex-row justify-between items-center">
+            <span className="text-gray-700 dark:text-gray-500 mr-1">{t("setting.storage-section.url-suffix")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.urlSuffix} placeholder={t("setting.storage-section.url-suffix-placeholder")} onChange={handleS3ConfigUrlSuffixChanged} />
           </div>
           <div className="w-full flex flex-row justify-between items-center">
             <span className="text-gray-700 dark:text-gray-500 mr-1">Use Path Style</span>
