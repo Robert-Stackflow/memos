@@ -149,6 +149,8 @@ export interface WorkspaceStorageSetting_S3Config {
   region: string;
   bucket: string;
   usePathStyle: boolean;
+  urlPrefix: string;
+  urlSuffix: string;
 }
 
 export interface WorkspaceMemoRelatedSetting {
@@ -735,7 +737,16 @@ export const WorkspaceStorageSetting: MessageFns<WorkspaceStorageSetting> = {
 };
 
 function createBaseWorkspaceStorageSetting_S3Config(): WorkspaceStorageSetting_S3Config {
-  return { accessKeyId: "", accessKeySecret: "", endpoint: "", region: "", bucket: "", usePathStyle: false };
+  return {
+    accessKeyId: "",
+    accessKeySecret: "",
+    endpoint: "",
+    region: "",
+    bucket: "",
+    usePathStyle: false,
+    urlPrefix: "",
+    urlSuffix: "",
+  };
 }
 
 export const WorkspaceStorageSetting_S3Config: MessageFns<WorkspaceStorageSetting_S3Config> = {
@@ -757,6 +768,12 @@ export const WorkspaceStorageSetting_S3Config: MessageFns<WorkspaceStorageSettin
     }
     if (message.usePathStyle !== false) {
       writer.uint32(48).bool(message.usePathStyle);
+    }
+    if (message.urlPrefix !== "") {
+      writer.uint32(58).string(message.urlPrefix);
+    }
+    if (message.urlSuffix !== "") {
+      writer.uint32(66).string(message.urlSuffix);
     }
     return writer;
   },
@@ -816,6 +833,22 @@ export const WorkspaceStorageSetting_S3Config: MessageFns<WorkspaceStorageSettin
           message.usePathStyle = reader.bool();
           continue;
         }
+        case 7: {
+          if (tag !== 58) {
+            break;
+          }
+
+          message.urlPrefix = reader.string();
+          continue;
+        }
+        case 8: {
+          if (tag !== 66) {
+            break;
+          }
+
+          message.urlSuffix = reader.string();
+          continue;
+        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -836,6 +869,8 @@ export const WorkspaceStorageSetting_S3Config: MessageFns<WorkspaceStorageSettin
     message.region = object.region ?? "";
     message.bucket = object.bucket ?? "";
     message.usePathStyle = object.usePathStyle ?? false;
+    message.urlPrefix = object.urlPrefix ?? "";
+    message.urlSuffix = object.urlSuffix ?? "";
     return message;
   },
 };

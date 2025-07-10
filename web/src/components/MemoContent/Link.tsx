@@ -58,7 +58,7 @@ const Link: React.FC<Props> = ({ content, url }: Props) => {
           </a>
         </TooltipTrigger>
         {linkMetadata && (
-          <TooltipContent className="w-full max-w-64 sm:max-w-96 p-1">
+          <TooltipContent className="w-full max-w-64 sm:max-w-96 p-3">
             <div className="w-full flex flex-col">
               <div className="w-full flex flex-row justify-start items-center gap-1">
                 <img className="w-5 h-5 rounded" src={getFaviconWithGoogleS2(url)} alt={linkMetadata?.title} />

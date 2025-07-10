@@ -80,7 +80,7 @@ export function CreateShortcutDialog({ open, onOpenChange, shortcut: initialShor
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md bg-card">
         <DialogHeader>
           <DialogTitle>{`${isCreating ? t("common.create") : t("common.edit")} ${t("common.shortcuts")}`}</DialogTitle>
         </DialogHeader>

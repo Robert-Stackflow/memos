@@ -70,6 +70,8 @@ func (in *GRPCAuthInterceptor) AuthenticationInterceptor(ctx context.Context, re
 		user, err := in.authenticateByJWT(ctx, accessToken)
 		if err == nil && user != nil {
 			return in.handleAuthenticatedRequest(ctx, request, serverInfo, handler, user, "", accessToken)
+		} else {
+			return nil, err
 		}
 	}
 

@@ -804,6 +804,8 @@ type WorkspaceStorageSetting_S3Config struct {
 	Region          string                 `protobuf:"bytes,4,opt,name=region,proto3" json:"region,omitempty"`
 	Bucket          string                 `protobuf:"bytes,5,opt,name=bucket,proto3" json:"bucket,omitempty"`
 	UsePathStyle    bool                   `protobuf:"varint,6,opt,name=use_path_style,json=usePathStyle,proto3" json:"use_path_style,omitempty"`
+	UrlPrefix       string                 `protobuf:"bytes,7,opt,name=url_prefix,json=urlPrefix,proto3" json:"url_prefix,omitempty"`
+	UrlSuffix       string                 `protobuf:"bytes,8,opt,name=url_suffix,json=urlSuffix,proto3" json:"url_suffix,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -880,6 +882,20 @@ func (x *WorkspaceStorageSetting_S3Config) GetUsePathStyle() bool {
 	return false
 }
 
+func (x *WorkspaceStorageSetting_S3Config) GetUrlPrefix() string {
+	if x != nil {
+		return x.UrlPrefix
+	}
+	return ""
+}
+
+func (x *WorkspaceStorageSetting_S3Config) GetUrlSuffix() string {
+	if x != nil {
+		return x.UrlSuffix
+	}
+	return ""
+}
+
 var File_api_v1_workspace_service_proto protoreflect.FileDescriptor
 
 const file_api_v1_workspace_service_proto_rawDesc = "" +
@@ -915,19 +931,23 @@ const file_api_v1_workspace_service_proto_rawDesc = "" +
 	"\x06locale\x18\x04 \x01(\tR\x06locale\x12\x1e\n" +
 	"\n" +
 	"appearance\x18\x05 \x01(\tR\n" +
-	"appearance\"\xb7\x04\n" +
+	"appearance\"\xf5\x04\n" +
 	"\x17WorkspaceStorageSetting\x12T\n" +
 	"\fstorage_type\x18\x01 \x01(\x0e21.memos.api.v1.WorkspaceStorageSetting.StorageTypeR\vstorageType\x12+\n" +
 	"\x11filepath_template\x18\x02 \x01(\tR\x10filepathTemplate\x12/\n" +
 	"\x14upload_size_limit_mb\x18\x03 \x01(\x03R\x11uploadSizeLimitMb\x12K\n" +
-	"\ts3_config\x18\x04 \x01(\v2..memos.api.v1.WorkspaceStorageSetting.S3ConfigR\bs3Config\x1a\xcc\x01\n" +
+	"\ts3_config\x18\x04 \x01(\v2..memos.api.v1.WorkspaceStorageSetting.S3ConfigR\bs3Config\x1a\x8a\x02\n" +
 	"\bS3Config\x12\"\n" +
 	"\raccess_key_id\x18\x01 \x01(\tR\vaccessKeyId\x12*\n" +
 	"\x11access_key_secret\x18\x02 \x01(\tR\x0faccessKeySecret\x12\x1a\n" +
 	"\bendpoint\x18\x03 \x01(\tR\bendpoint\x12\x16\n" +
 	"\x06region\x18\x04 \x01(\tR\x06region\x12\x16\n" +
 	"\x06bucket\x18\x05 \x01(\tR\x06bucket\x12$\n" +
-	"\x0euse_path_style\x18\x06 \x01(\bR\fusePathStyle\"L\n" +
+	"\x0euse_path_style\x18\x06 \x01(\bR\fusePathStyle\x12\x1d\n" +
+	"\n" +
+	"url_prefix\x18\a \x01(\tR\turlPrefix\x12\x1d\n" +
+	"\n" +
+	"url_suffix\x18\b \x01(\tR\turlSuffix\"L\n" +
 	"\vStorageType\x12\x1c\n" +
 	"\x18STORAGE_TYPE_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bDATABASE\x10\x01\x12\t\n" +

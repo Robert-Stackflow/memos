@@ -39,7 +39,7 @@ const MemoAttachmentListView = ({ attachments = [] }: { attachments: Attachment[
     if (type === "image/*") {
       return (
         <img
-          className={cn("cursor-pointer h-full w-auto rounded-lg border border-border/60 object-contain transition-colors", className)}
+          className={cn("cursor-pointer h-full w-auto rounded-lg border border-border/60 object-cover transition-colors", className)}
           src={attachment.externalLink ? attachmentUrl : attachmentUrl + "?thumbnail=true"}
           onError={(e) => {
             // Fallback to original image if thumbnail fails
@@ -58,7 +58,7 @@ const MemoAttachmentListView = ({ attachments = [] }: { attachments: Attachment[
       return (
         <video
           className={cn(
-            "cursor-pointer h-full w-auto rounded-lg border border-border/60 object-contain bg-popover transition-colors",
+            "cursor-pointer h-full w-auto rounded-lg border border-border/60 object-cover bg-popover transition-colors",
             className,
           )}
           preload="metadata"
@@ -74,7 +74,7 @@ const MemoAttachmentListView = ({ attachments = [] }: { attachments: Attachment[
 
   const MediaList = ({ attachments = [] }: { attachments: Attachment[] }) => {
     const cards = attachments.map((attachment) => (
-      <div key={attachment.name} className="max-w-[70%] grow flex flex-col justify-start items-start shrink-0">
+      <div key={attachment.name} className="max-w-[70%] flex flex-col justify-start items-start shrink-0">
         <MediaCard className="max-h-64 grow" attachment={attachment} />
       </div>
     ));

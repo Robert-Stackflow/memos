@@ -87,14 +87,11 @@ const MemberSection = observer(() => {
   return (
     <div className="w-full flex flex-col gap-2 pt-2 pb-4">
       <div className="w-full flex flex-row justify-between items-center">
-        <p className="font-medium text-muted-foreground">{t("setting.member-section.create-a-member")}</p>
+        <div className="font-medium text-muted-foreground title-text">{t("setting.member-list")}</div>
         <Button onClick={handleCreateUser}>
           <PlusIcon className="w-4 h-4 mr-2" />
           {t("common.create")}
         </Button>
-      </div>
-      <div className="w-full flex flex-row justify-between items-center mt-6">
-        <div className="title-text">{t("setting.member-list")}</div>
       </div>
       <div className="w-full overflow-x-auto">
         <div className="inline-block min-w-full align-middle border border-border rounded-lg">

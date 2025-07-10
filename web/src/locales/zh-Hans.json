@@ -242,7 +242,8 @@
         "some-description": "请输入描述..."
       },
       "description": "该账号下全部的访问令牌",
-      "title": "访问令牌"
+      "title": "访问令牌",
+      "no-access-token-found": "没有访问令牌"
     },
     "user-sessions-section": {
       "title": "用户会话",
@@ -303,7 +304,8 @@
     "preference-section": {
       "default-memo-sort-option": "备忘录显示时间",
       "default-memo-visibility": "默认备忘录可见性",
-      "theme": "主题"
+      "theme": "主题",
+      "apperance": "外观"
     },
     "sso": "单点登录",
     "sso-section": {
@@ -333,20 +335,21 @@
     "storage-section": {
       "accesskey": "访问密钥（Access key）",
       "accesskey-placeholder": "Access key / Access ID",
-      "bucket": "储存桶（Bucket）",
-      "bucket-placeholder": "储存桶名",
+      "bucket": "存储桶（Bucket）",
+      "bucket-placeholder": "存储桶名",
       "create-a-service": "新建服务",
       "create-storage": "创建存储",
       "current-storage": "当前对象存储",
       "delete-storage": "删除存储",
       "endpoint": "端点（Endpoint）",
+      "endpoint-placeholder": "端点地址",
       "filepath-template": "文件路径模板",
       "local-storage-path": "本地存储路径",
       "path": "存储路径",
       "path-description": "您可以使用本地存储中的相同动态变量，例如 {filename}",
       "path-placeholder": "自定义路径",
       "presign-placeholder": "预签名链接（可选）",
-      "region": "地区",
+      "region": "地区（Region）",
       "region-placeholder": "区域名称",
       "s3-compatible-url": "S3 兼容链接",
       "secretkey": "Secret key",
@@ -375,8 +378,14 @@
         "appearance": "服务器外观",
         "description": "描述",
         "icon-url": "图标链接",
+        "description-placeholder": "输入描述",
+        "server-name-placeholder": "输入服务器名称",
+        "icon-url-placeholder": "输入图标链接",
         "locale": "服务器语言环境",
-        "title": "自定义服务器"
+        "locale-placeholder": "选择语言",
+        "appearance-placeholder": "选择外观",
+        "title": "自定义服务器",
+        "title-description": "自定义你的工作区外观和设置"
       },
       "disable-markdown-shortcuts-in-editor": "禁用编辑器中的 Markdown 快捷键",
       "disable-password-login": "禁用密码登录",
@@ -402,7 +411,7 @@
         "payload-url": "请输入有效的 URL",
         "title": "标题"
       },
-      "no-webhooks-found": "没有 webhooks。"
+      "no-webhooks-found": "没有 webhooks"
     },
     "workspace-section": {
       "disallow-change-nickname": "禁止修改用户昵称",

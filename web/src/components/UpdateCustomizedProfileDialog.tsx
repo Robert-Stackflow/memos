@@ -107,21 +107,21 @@ export function UpdateCustomizedProfileDialog({ open, onOpenChange, onSuccess }:
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl bg-card">
         <DialogHeader>
           <DialogTitle>{t("setting.system-section.customize-server.title")}</DialogTitle>
-          <DialogDescription>Customize your workspace appearance and settings.</DialogDescription>
+          <DialogDescription>{t("setting.system-section.customize-server.title-description")}</DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="server-name">{t("setting.system-section.server-name")}</Label>
-            <Input id="server-name" type="text" value={customProfile.title} onChange={handleNameChanged} placeholder="Enter server name" />
+            <Input id="server-name" type="text" value={customProfile.title} onChange={handleNameChanged} placeholder={t("setting.system-section.customize-server.server-name-placeholder")} />
           </div>
 
           <div className="grid gap-2">
             <Label htmlFor="icon-url">{t("setting.system-section.customize-server.icon-url")}</Label>
-            <Input id="icon-url" type="text" value={customProfile.logoUrl} onChange={handleLogoUrlChanged} placeholder="Enter icon URL" />
+            <Input id="icon-url" type="text" value={customProfile.logoUrl} onChange={handleLogoUrlChanged} placeholder={t("setting.system-section.customize-server.icon-url-placeholder")} />
           </div>
 
           <div className="grid gap-2">
@@ -131,7 +131,7 @@ export function UpdateCustomizedProfileDialog({ open, onOpenChange, onSuccess }:
               rows={3}
               value={customProfile.description}
               onChange={handleDescriptionChanged}
-              placeholder="Enter description"
+              placeholder={t("setting.system-section.customize-server.description-placeholder")}
             />
           </div>
 

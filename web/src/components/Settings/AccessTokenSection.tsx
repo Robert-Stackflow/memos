@@ -123,6 +123,13 @@ const AccessTokenSection = () => {
                       </td>
                     </tr>
                   ))}
+                  {userAccessTokens.length === 0 && (
+                  <tr>
+                    <td className="whitespace-nowrap px-3 py-2 text-sm text-foreground" colSpan={3}>
+                      {t("setting.access-token-section.no-access-token-found")}
+                    </td>
+                  </tr>
+                )}
                 </tbody>
               </table>
             </div>

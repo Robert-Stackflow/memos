@@ -19,3 +19,7 @@ dist
 
 # VSCode settings
 .vscode
+
+bin/
+
+!bin/memos/main.go

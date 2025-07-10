@@ -249,7 +249,8 @@
       },
       "description": "A list of all access tokens for your account.",
       "title": "Access Tokens",
-      "token": "Token"
+      "token": "Token",
+      "no-access-token-found": "No access tokens found."
     },
     "user-sessions-section": {
       "title": "Active Sessions",
@@ -349,6 +350,7 @@
       "current-storage": "Current object storage",
       "delete-storage": "Delete Storage",
       "endpoint": "Endpoint",
+      "endpoint-placeholder": "Endpoint",
       "filepath-template": "Filepath template",
       "local-storage-path": "Local storage path",
       "path": "Storage Path",
@@ -384,8 +386,14 @@
         "appearance": "Server Appearance",
         "description": "Description",
         "icon-url": "Icon URL",
+        "description-placeholder": "Enter description",
+        "server-name-placeholder": "Enter server name",
+        "icon-url-placeholder": "Enter icon URL",
         "locale": "Server Locale",
-        "title": "Customize Server"
+        "locale-placeholder": "Select language",
+        "appearance-placeholder": "Select appearance",
+        "title": "Customize Server",
+        "title-description": "Customize your workspace appearance and settings."
       },
       "disable-markdown-shortcuts-in-editor": "Disable Markdown shortcuts in editor",
       "disable-password-login": "Disable password login",

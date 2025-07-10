@@ -34,19 +34,13 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: pageSize
-          description: |-
-            The maximum number of activities to return.
-            The service may return fewer than this value.
-            If unspecified, at most 100 activities will be returned.
-            The maximum value is 1000; values above 1000 will be coerced to 1000.
+          description: "The maximum number of activities to return.\r\nThe service may return fewer than this value.\r\nIf unspecified, at most 100 activities will be returned.\r\nThe maximum value is 1000; values above 1000 will be coerced to 1000."
           in: query
           required: false
           type: integer
           format: int32
         - name: pageToken
-          description: |-
-            A page token, received from a previous `ListActivities` call.
-            Provide this to retrieve the subsequent page.
+          description: "A page token, received from a previous `ListActivities` call.\r\nProvide this to retrieve the subsequent page."
           in: query
           required: false
           type: string
@@ -67,35 +61,23 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: pageSize
-          description: |-
-            Optional. The maximum number of attachments to return.
-            The service may return fewer than this value.
-            If unspecified, at most 50 attachments will be returned.
-            The maximum value is 1000; values above 1000 will be coerced to 1000.
+          description: "Optional. The maximum number of attachments to return.\r\nThe service may return fewer than this value.\r\nIf unspecified, at most 50 attachments will be returned.\r\nThe maximum value is 1000; values above 1000 will be coerced to 1000."
           in: query
           required: false
           type: integer
           format: int32
         - name: pageToken
-          description: |-
-            Optional. A page token, received from a previous `ListAttachments` call.
-            Provide this to retrieve the subsequent page.
+          description: "Optional. A page token, received from a previous `ListAttachments` call.\r\nProvide this to retrieve the subsequent page."
           in: query
           required: false
           type: string
         - name: filter
-          description: |-
-            Optional. Filter to apply to the list results.
-            Example: "type=image/png" or "filename:*.jpg"
-            Supported operators: =, !=, <, <=, >, >=, :
-            Supported fields: filename, type, size, create_time, memo
+          description: "Optional. Filter to apply to the list results.\r\nExample: \"type=image/png\" or \"filename:*.jpg\"\r\nSupported operators: =, !=, <, <=, >, >=, :\r\nSupported fields: filename, type, size, create_time, memo"
           in: query
           required: false
           type: string
         - name: orderBy
-          description: |-
-            Optional. The order to sort results by.
-            Example: "create_time desc" or "filename asc"
+          description: "Optional. The order to sort results by.\r\nExample: \"create_time desc\" or \"filename asc\""
           in: query
           required: false
           type: string
@@ -123,9 +105,7 @@ paths:
             required:
               - attachment
         - name: attachmentId
-          description: |-
-            Optional. The attachment ID to use for this attachment.
-            If empty, a unique ID will be generated.
+          description: "Optional. The attachment ID to use for this attachment.\r\nIf empty, a unique ID will be generated."
           in: query
           required: false
           type: string
@@ -133,9 +113,7 @@ paths:
         - AttachmentService
   /api/v1/auth/sessions:
     post:
-      summary: |-
-        CreateSession authenticates a user and creates a new session.
-        Returns the authenticated user information upon successful authentication.
+      summary: "CreateSession authenticates a user and creates a new session.\r\nReturns the authenticated user information upon successful authentication."
       operationId: AuthService_CreateSession
       responses:
         "200":
@@ -156,9 +134,7 @@ paths:
         - AuthService
   /api/v1/auth/sessions/current:
     get:
-      summary: |-
-        GetCurrentSession returns the current active session information.
-        This method is idempotent and safe, suitable for checking current session state.
+      summary: "GetCurrentSession returns the current active session information.\r\nThis method is idempotent and safe, suitable for checking current session state."
       operationId: AuthService_GetCurrentSession
       responses:
         "200":
@@ -172,9 +148,7 @@ paths:
       tags:
         - AuthService
     delete:
-      summary: |-
-        DeleteSession terminates the current user session.
-        This is an idempotent operation that invalidates the user's authentication.
+      summary: "DeleteSession terminates the current user session.\r\nThis is an idempotent operation that invalidates the user's authentication."
       operationId: AuthService_DeleteSession
       responses:
         "200":
@@ -225,9 +199,7 @@ paths:
             required:
               - identityProvider
         - name: identityProviderId
-          description: |-
-            Optional. The ID to use for the identity provider, which will become the final component of the resource name.
-            If not provided, the system will generate one.
+          description: "Optional. The ID to use for the identity provider, which will become the final component of the resource name.\r\nIf not provided, the system will generate one."
           in: query
           required: false
           type: string
@@ -235,9 +207,7 @@ paths:
         - IdentityProviderService
   /api/v1/markdown/links:getMetadata:
     get:
-      summary: |-
-        GetLinkMetadata returns metadata for a given link.
-        This is useful for generating link previews.
+      summary: "GetLinkMetadata returns metadata for a given link.\r\nThis is useful for generating link previews."
       operationId: MarkdownService_GetLinkMetadata
       responses:
         "200":
@@ -258,9 +228,7 @@ paths:
         - MarkdownService
   /api/v1/markdown:parse:
     post:
-      summary: |-
-        ParseMarkdown parses the given markdown content and returns a list of nodes.
-        This is a utility method that transforms markdown text into structured nodes.
+      summary: "ParseMarkdown parses the given markdown content and returns a list of nodes.\r\nThis is a utility method that transforms markdown text into structured nodes."
       operationId: MarkdownService_ParseMarkdown
       responses:
         "200":
@@ -281,9 +249,7 @@ paths:
         - MarkdownService
   /api/v1/markdown:restore:
     post:
-      summary: |-
-        RestoreMarkdownNodes restores the given nodes to markdown content.
-        This is the inverse operation of ParseMarkdown.
+      summary: "RestoreMarkdownNodes restores the given nodes to markdown content.\r\nThis is the inverse operation of ParseMarkdown."
       operationId: MarkdownService_RestoreMarkdownNodes
       responses:
         "200":
@@ -304,9 +270,7 @@ paths:
         - MarkdownService
   /api/v1/markdown:stringify:
     post:
-      summary: |-
-        StringifyMarkdownNodes stringify the given nodes to plain text content.
-        This removes all markdown formatting and returns plain text.
+      summary: "StringifyMarkdownNodes stringify the given nodes to plain text content.\r\nThis removes all markdown formatting and returns plain text."
       operationId: MarkdownService_StringifyMarkdownNodes
       responses:
         "200":
@@ -340,34 +304,23 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Optional. The parent is the owner of the memos.
-            If not specified or `users/-`, it will list all memos.
-            Format: users/{user}
+          description: "Optional. The parent is the owner of the memos.\r\nIf not specified or `users/-`, it will list all memos.\r\nFormat: users/{user}"
           in: query
           required: false
           type: string
         - name: pageSize
-          description: |-
-            Optional. The maximum number of memos to return.
-            The service may return fewer than this value.
-            If unspecified, at most 50 memos will be returned.
-            The maximum value is 1000; values above 1000 will be coerced to 1000.
+          description: "Optional. The maximum number of memos to return.\r\nThe service may return fewer than this value.\r\nIf unspecified, at most 50 memos will be returned.\r\nThe maximum value is 1000; values above 1000 will be coerced to 1000."
           in: query
           required: false
           type: integer
           format: int32
         - name: pageToken
-          description: |-
-            Optional. A page token, received from a previous `ListMemos` call.
-            Provide this to retrieve the subsequent page.
+          description: "Optional. A page token, received from a previous `ListMemos` call.\r\nProvide this to retrieve the subsequent page."
           in: query
           required: false
           type: string
         - name: state
-          description: |-
-            Optional. The state of the memos to list.
-            Default to `NORMAL`. Set to `ARCHIVED` to list archived memos.
+          description: "Optional. The state of the memos to list.\r\nDefault to `NORMAL`. Set to `ARCHIVED` to list archived memos."
           in: query
           required: false
           type: string
@@ -377,18 +330,12 @@ paths:
             - ARCHIVED
           default: STATE_UNSPECIFIED
         - name: orderBy
-          description: |-
-            Optional. The order to sort results by.
-            Default to "display_time desc".
-            Example: "display_time desc" or "create_time asc"
+          description: "Optional. The order to sort results by.\r\nDefault to \"display_time desc\".\r\nExample: \"display_time desc\" or \"create_time asc\""
           in: query
           required: false
           type: string
         - name: filter
-          description: |-
-            Optional. Filter to apply to the list results.
-            Filter is a CEL expression to filter memos.
-            Refer to `Shortcut.filter`.
+          description: "Optional. Filter to apply to the list results.\r\nFilter is a CEL expression to filter memos.\r\nRefer to `Shortcut.filter`."
           in: query
           required: false
           type: string
@@ -398,9 +345,7 @@ paths:
           required: false
           type: boolean
         - name: oldFilter
-          description: |-
-            [Deprecated] Old filter contains some specific conditions to filter memos.
-            Format: "creator == 'users/{user}' && visibilities == ['PUBLIC', 'PROTECTED']"
+          description: "[Deprecated] Old filter contains some specific conditions to filter memos.\r\nFormat: \"creator == 'users/{user}' && visibilities == ['PUBLIC', 'PROTECTED']\""
           in: query
           required: false
           type: string
@@ -428,9 +373,7 @@ paths:
             required:
               - memo
         - name: memoId
-          description: |-
-            Optional. The memo ID to use for this memo.
-            If empty, a unique ID will be generated.
+          description: "Optional. The memo ID to use for this memo.\r\nIf empty, a unique ID will be generated."
           in: query
           required: false
           type: string
@@ -461,35 +404,23 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: pageSize
-          description: |-
-            Optional. The maximum number of users to return.
-            The service may return fewer than this value.
-            If unspecified, at most 50 users will be returned.
-            The maximum value is 1000; values above 1000 will be coerced to 1000.
+          description: "Optional. The maximum number of users to return.\r\nThe service may return fewer than this value.\r\nIf unspecified, at most 50 users will be returned.\r\nThe maximum value is 1000; values above 1000 will be coerced to 1000."
           in: query
           required: false
           type: integer
           format: int32
         - name: pageToken
-          description: |-
-            Optional. A page token, received from a previous `ListUsers` call.
-            Provide this to retrieve the subsequent page.
+          description: "Optional. A page token, received from a previous `ListUsers` call.\r\nProvide this to retrieve the subsequent page."
           in: query
           required: false
           type: string
         - name: filter
-          description: |-
-            Optional. Filter to apply to the list results.
-            Example: "state=ACTIVE" or "role=USER" or "email:@example.com"
-            Supported operators: =, !=, <, <=, >, >=, :
-            Supported fields: username, email, role, state, create_time, update_time
+          description: "Optional. Filter to apply to the list results.\r\nExample: \"state=ACTIVE\" or \"role=USER\" or \"email:@example.com\"\r\nSupported operators: =, !=, <, <=, >, >=, :\r\nSupported fields: username, email, role, state, create_time, update_time"
           in: query
           required: false
           type: string
         - name: orderBy
-          description: |-
-            Optional. The order to sort results by.
-            Example: "create_time desc" or "username asc"
+          description: "Optional. The order to sort results by.\r\nExample: \"create_time desc\" or \"username asc\""
           in: query
           required: false
           type: string
@@ -522,10 +453,7 @@ paths:
             required:
               - user
         - name: userId
-          description: |-
-            Optional. The user ID to use for this user.
-            If empty, a unique ID will be generated.
-            Must match the pattern [a-z0-9-]+
+          description: "Optional. The user ID to use for this user.\r\nIf empty, a unique ID will be generated.\r\nMust match the pattern [a-z0-9-]+"
           in: query
           required: false
           type: string
@@ -535,9 +463,7 @@ paths:
           required: false
           type: boolean
         - name: requestId
-          description: |-
-            Optional. An idempotency token that can be used to ensure that multiple
-            requests to create a user have the same result.
+          description: "Optional. An idempotency token that can be used to ensure that multiple\r\nrequests to create a user have the same result."
           in: query
           required: false
           type: string
@@ -632,9 +558,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: attachment.name
-          description: |-
-            The name of the attachment.
-            Format: attachments/{attachment}
+          description: "The name of the attachment.\r\nFormat: attachments/{attachment}"
           in: path
           required: true
           type: string
@@ -671,9 +595,7 @@ paths:
                 readOnly: true
               memo:
                 type: string
-                title: |-
-                  Optional. The related memo. Refer to `Memo.name`.
-                  Format: memos/{memo}
+                title: "Optional. The related memo. Refer to `Memo.name`.\r\nFormat: memos/{memo}"
             title: Required. The attachment which replaces the attachment on the server.
             required:
               - filename
@@ -696,9 +618,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: identityProvider.name
-          description: |-
-            The resource name of the identity provider.
-            Format: identityProviders/{idp}
+          description: "The resource name of the identity provider.\r\nFormat: identityProviders/{idp}"
           in: path
           required: true
           type: string
@@ -745,9 +665,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: inbox.name
-          description: |-
-            The resource name of the inbox.
-            Format: inboxes/{inbox}
+          description: "The resource name of the inbox.\r\nFormat: inboxes/{inbox}"
           in: path
           required: true
           type: string
@@ -761,15 +679,11 @@ paths:
             properties:
               sender:
                 type: string
-                title: |-
-                  The sender of the inbox notification.
-                  Format: users/{user}
+                title: "The sender of the inbox notification.\r\nFormat: users/{user}"
                 readOnly: true
               receiver:
                 type: string
-                title: |-
-                  The receiver of the inbox notification.
-                  Format: users/{user}
+                title: "The receiver of the inbox notification.\r\nFormat: users/{user}"
                 readOnly: true
               status:
                 $ref: '#/definitions/v1InboxStatus'
@@ -812,17 +726,13 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: memo.name
-          description: |-
-            The resource name of the memo.
-            Format: memos/{memo}, memo is the user defined id or uuid.
+          description: "The resource name of the memo.\r\nFormat: memos/{memo}, memo is the user defined id or uuid."
           in: path
           required: true
           type: string
           pattern: memos/[^/]+
         - name: memo
-          description: |-
-            Required. The memo to update.
-            The `name` field is required.
+          description: "Required. The memo to update.\r\nThe `name` field is required."
           in: body
           required: true
           schema:
@@ -833,9 +743,7 @@ paths:
                 description: The state of the memo.
               creator:
                 type: string
-                title: |-
-                  The name of the creator.
-                  Format: users/{user}
+                title: "The name of the creator.\r\nFormat: users/{user}"
                 readOnly: true
               createTime:
                 type: string
@@ -898,9 +806,7 @@ paths:
                 readOnly: true
               parent:
                 type: string
-                title: |-
-                  Output only. The name of the parent memo.
-                  Format: memos/{memo}
+                title: "Output only. The name of the parent memo.\r\nFormat: memos/{memo}"
                 readOnly: true
               snippet:
                 type: string
@@ -909,9 +815,7 @@ paths:
               location:
                 $ref: '#/definitions/apiv1Location'
                 description: Optional. The location of the memo.
-            title: |-
-              Required. The memo to update.
-              The `name` field is required.
+            title: "Required. The memo to update.\r\nThe `name` field is required."
             required:
               - state
               - content
@@ -939,9 +843,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_1
-          description: |-
-            Required. The attachment name of the attachment to retrieve.
-            Format: attachments/{attachment}
+          description: "Required. The attachment name of the attachment to retrieve.\r\nFormat: attachments/{attachment}"
           in: path
           required: true
           type: string
@@ -963,9 +865,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_1
-          description: |-
-            Required. The resource name of the user to delete.
-            Format: users/{user}
+          description: "Required. The resource name of the user to delete.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -992,17 +892,13 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_2
-          description: |-
-            Required. The resource name of the user.
-            Format: users/{user}
+          description: "Required. The resource name of the user.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
           pattern: users/[^/]+
         - name: readMask
-          description: |-
-            Optional. The fields to return in the response.
-            If not specified, all fields are returned.
+          description: "Optional. The fields to return in the response.\r\nIf not specified, all fields are returned."
           in: query
           required: false
           type: string
@@ -1023,9 +919,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_2
-          description: |-
-            Required. The resource name of the access token to delete.
-            Format: users/{user}/accessTokens/{access_token}
+          description: "Required. The resource name of the access token to delete.\r\nFormat: users/{user}/accessTokens/{access_token}"
           in: path
           required: true
           type: string
@@ -1047,9 +941,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_3
-          description: |-
-            Required. The resource name of the identity provider to get.
-            Format: identityProviders/{idp}
+          description: "Required. The resource name of the identity provider to get.\r\nFormat: identityProviders/{idp}"
           in: path
           required: true
           type: string
@@ -1071,9 +963,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_3
-          description: |-
-            Required. The resource name of the session to revoke.
-            Format: users/{user}/sessions/{session}
+          description: "Required. The resource name of the session to revoke.\r\nFormat: users/{user}/sessions/{session}"
           in: path
           required: true
           type: string
@@ -1095,17 +985,13 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_4
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
           pattern: memos/[^/]+
         - name: readMask
-          description: |-
-            Optional. The fields to return in the response.
-            If not specified, all fields are returned.
+          description: "Optional. The fields to return in the response.\r\nIf not specified, all fields are returned."
           in: query
           required: false
           type: string
@@ -1126,9 +1012,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_4
-          description: |-
-            Required. The resource name of the identity provider to delete.
-            Format: identityProviders/{idp}
+          description: "Required. The resource name of the identity provider to delete.\r\nFormat: identityProviders/{idp}"
           in: path
           required: true
           type: string
@@ -1150,9 +1034,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_5
-          description: |-
-            Required. The resource name of the shortcut to retrieve.
-            Format: users/{user}/shortcuts/{shortcut}
+          description: "Required. The resource name of the shortcut to retrieve.\r\nFormat: users/{user}/shortcuts/{shortcut}"
           in: path
           required: true
           type: string
@@ -1174,9 +1056,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_5
-          description: |-
-            Required. The resource name of the inbox to delete.
-            Format: inboxes/{inbox}
+          description: "Required. The resource name of the inbox to delete.\r\nFormat: inboxes/{inbox}"
           in: path
           required: true
           type: string
@@ -1198,9 +1078,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_6
-          description: |-
-            Required. The resource name of the webhook to retrieve.
-            Format: users/{user}/webhooks/{webhook}
+          description: "Required. The resource name of the webhook to retrieve.\r\nFormat: users/{user}/webhooks/{webhook}"
           in: path
           required: true
           type: string
@@ -1222,9 +1100,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_6
-          description: |-
-            Required. The resource name of the memo to delete.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo to delete.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1251,9 +1127,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_7
-          description: |-
-            The resource name of the workspace setting.
-            Format: workspace/settings/{setting}
+          description: "The resource name of the workspace setting.\r\nFormat: workspace/settings/{setting}"
           in: path
           required: true
           type: string
@@ -1275,9 +1149,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_7
-          description: |-
-            Required. The resource name of the reaction to delete.
-            Format: reactions/{reaction}
+          description: "Required. The resource name of the reaction to delete.\r\nFormat: reactions/{reaction}"
           in: path
           required: true
           type: string
@@ -1300,9 +1172,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_8
-          description: |-
-            Required. The resource name of the shortcut to delete.
-            Format: users/{user}/shortcuts/{shortcut}
+          description: "Required. The resource name of the shortcut to delete.\r\nFormat: users/{user}/shortcuts/{shortcut}"
           in: path
           required: true
           type: string
@@ -1325,9 +1195,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name_9
-          description: |-
-            Required. The resource name of the webhook to delete.
-            Format: users/{user}/webhooks/{webhook}
+          description: "Required. The resource name of the webhook to delete.\r\nFormat: users/{user}/webhooks/{webhook}"
           in: path
           required: true
           type: string
@@ -1349,9 +1217,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            The name of the activity.
-            Format: activities/{id}, id is the system generated auto-incremented id.
+          description: "The name of the activity.\r\nFormat: activities/{id}, id is the system generated auto-incremented id."
           in: path
           required: true
           type: string
@@ -1373,9 +1239,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The attachment name of the attachment to delete.
-            Format: attachments/{attachment}
+          description: "Required. The attachment name of the attachment to delete.\r\nFormat: attachments/{attachment}"
           in: path
           required: true
           type: string
@@ -1397,9 +1261,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1432,9 +1294,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1461,9 +1321,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the user.
-            Format: users/{user}
+          description: "Required. The resource name of the user.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -1485,9 +1343,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1524,9 +1380,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1561,9 +1415,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1595,9 +1447,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1624,9 +1474,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1659,9 +1507,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the memo.
-            Format: memos/{memo}
+          description: "Required. The resource name of the memo.\r\nFormat: memos/{memo}"
           in: path
           required: true
           type: string
@@ -1688,9 +1534,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the user.
-            Format: users/{user}
+          description: "Required. The resource name of the user.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -1712,9 +1556,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The resource name of the user.
-            Format: users/{user}
+          description: "Required. The resource name of the user.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -1736,9 +1578,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent resource whose access tokens will be listed.
-            Format: users/{user}
+          description: "Required. The parent resource whose access tokens will be listed.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -1770,9 +1610,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent resource where this access token will be created.
-            Format: users/{user}
+          description: "Required. The parent resource where this access token will be created.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -1807,43 +1645,29 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent resource whose inboxes will be listed.
-            Format: users/{user}
+          description: "Required. The parent resource whose inboxes will be listed.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
           pattern: users/[^/]+
         - name: pageSize
-          description: |-
-            Optional. The maximum number of inboxes to return.
-            The service may return fewer than this value.
-            If unspecified, at most 50 inboxes will be returned.
-            The maximum value is 1000; values above 1000 will be coerced to 1000.
+          description: "Optional. The maximum number of inboxes to return.\r\nThe service may return fewer than this value.\r\nIf unspecified, at most 50 inboxes will be returned.\r\nThe maximum value is 1000; values above 1000 will be coerced to 1000."
           in: query
           required: false
           type: integer
           format: int32
         - name: pageToken
-          description: |-
-            Optional. A page token, received from a previous `ListInboxes` call.
-            Provide this to retrieve the subsequent page.
+          description: "Optional. A page token, received from a previous `ListInboxes` call.\r\nProvide this to retrieve the subsequent page."
           in: query
           required: false
           type: string
         - name: filter
-          description: |-
-            Optional. Filter to apply to the list results.
-            Example: "status=UNREAD" or "type=MEMO_COMMENT"
-            Supported operators: =, !=
-            Supported fields: status, type, sender, create_time
+          description: "Optional. Filter to apply to the list results.\r\nExample: \"status=UNREAD\" or \"type=MEMO_COMMENT\"\r\nSupported operators: =, !=\r\nSupported fields: status, type, sender, create_time"
           in: query
           required: false
           type: string
         - name: orderBy
-          description: |-
-            Optional. The order to sort results by.
-            Example: "create_time desc" or "status asc"
+          description: "Optional. The order to sort results by.\r\nExample: \"create_time desc\" or \"status asc\""
           in: query
           required: false
           type: string
@@ -1864,35 +1688,24 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Optional. The parent is the owner of the memos.
-            If not specified or `users/-`, it will list all memos.
-            Format: users/{user}
+          description: "Optional. The parent is the owner of the memos.\r\nIf not specified or `users/-`, it will list all memos.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
           pattern: users/[^/]+
         - name: pageSize
-          description: |-
-            Optional. The maximum number of memos to return.
-            The service may return fewer than this value.
-            If unspecified, at most 50 memos will be returned.
-            The maximum value is 1000; values above 1000 will be coerced to 1000.
+          description: "Optional. The maximum number of memos to return.\r\nThe service may return fewer than this value.\r\nIf unspecified, at most 50 memos will be returned.\r\nThe maximum value is 1000; values above 1000 will be coerced to 1000."
           in: query
           required: false
           type: integer
           format: int32
         - name: pageToken
-          description: |-
-            Optional. A page token, received from a previous `ListMemos` call.
-            Provide this to retrieve the subsequent page.
+          description: "Optional. A page token, received from a previous `ListMemos` call.\r\nProvide this to retrieve the subsequent page."
           in: query
           required: false
           type: string
         - name: state
-          description: |-
-            Optional. The state of the memos to list.
-            Default to `NORMAL`. Set to `ARCHIVED` to list archived memos.
+          description: "Optional. The state of the memos to list.\r\nDefault to `NORMAL`. Set to `ARCHIVED` to list archived memos."
           in: query
           required: false
           type: string
@@ -1902,18 +1715,12 @@ paths:
             - ARCHIVED
           default: STATE_UNSPECIFIED
         - name: orderBy
-          description: |-
-            Optional. The order to sort results by.
-            Default to "display_time desc".
-            Example: "display_time desc" or "create_time asc"
+          description: "Optional. The order to sort results by.\r\nDefault to \"display_time desc\".\r\nExample: \"display_time desc\" or \"create_time asc\""
           in: query
           required: false
           type: string
         - name: filter
-          description: |-
-            Optional. Filter to apply to the list results.
-            Filter is a CEL expression to filter memos.
-            Refer to `Shortcut.filter`.
+          description: "Optional. Filter to apply to the list results.\r\nFilter is a CEL expression to filter memos.\r\nRefer to `Shortcut.filter`."
           in: query
           required: false
           type: string
@@ -1923,9 +1730,7 @@ paths:
           required: false
           type: boolean
         - name: oldFilter
-          description: |-
-            [Deprecated] Old filter contains some specific conditions to filter memos.
-            Format: "creator == 'users/{user}' && visibilities == ['PUBLIC', 'PROTECTED']"
+          description: "[Deprecated] Old filter contains some specific conditions to filter memos.\r\nFormat: \"creator == 'users/{user}' && visibilities == ['PUBLIC', 'PROTECTED']\""
           in: query
           required: false
           type: string
@@ -1946,9 +1751,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The resource name of the parent.
-            Format: users/{user}
+          description: "Required. The resource name of the parent.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -1970,9 +1773,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent resource where shortcuts are listed.
-            Format: users/{user}
+          description: "Required. The parent resource where shortcuts are listed.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -1993,9 +1794,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent resource where this shortcut will be created.
-            Format: users/{user}
+          description: "Required. The parent resource where this shortcut will be created.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -2031,9 +1830,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent, who owns the tags.
-            Format: memos/{memo}. Use "memos/-" to delete all tags.
+          description: "Required. The parent, who owns the tags.\r\nFormat: memos/{memo}. Use \"memos/-\" to delete all tags."
           in: path
           required: true
           type: string
@@ -2066,9 +1863,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent, who owns the tags.
-            Format: memos/{memo}. Use "memos/-" to rename all tags.
+          description: "Required. The parent, who owns the tags.\r\nFormat: memos/{memo}. Use \"memos/-\" to rename all tags."
           in: path
           required: true
           type: string
@@ -2095,9 +1890,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent resource where webhooks are listed.
-            Format: users/{user}
+          description: "Required. The parent resource where webhooks are listed.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -2118,9 +1911,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: parent
-          description: |-
-            Required. The parent resource where this webhook will be created.
-            Format: users/{user}
+          description: "Required. The parent resource where this webhook will be created.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -2155,9 +1946,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: setting.name
-          description: |-
-            The name of the workspace setting.
-            Format: workspace/settings/{setting}
+          description: "The name of the workspace setting.\r\nFormat: workspace/settings/{setting}"
           in: path
           required: true
           type: string
@@ -2195,9 +1984,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: setting.name
-          description: |-
-            The resource name of the user whose setting this is.
-            Format: users/{user}
+          description: "The resource name of the user whose setting this is.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -2220,10 +2007,7 @@ paths:
                 description: The default visibility of the memo.
               theme:
                 type: string
-                description: |-
-                  The preferred theme of the user.
-                  This references a CSS file in the web/public/themes/ directory.
-                  If not set, the default theme will be used.
+                description: "The preferred theme of the user.\r\nThis references a CSS file in the web/public/themes/ directory.\r\nIf not set, the default theme will be used."
             title: Required. The user setting to update.
             required:
               - setting
@@ -2244,9 +2028,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: shortcut.name
-          description: |-
-            The resource name of the shortcut.
-            Format: users/{user}/shortcuts/{shortcut}
+          description: "The resource name of the shortcut.\r\nFormat: users/{user}/shortcuts/{shortcut}"
           in: path
           required: true
           type: string
@@ -2285,9 +2067,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: user.name
-          description: |-
-            The resource name of the user.
-            Format: users/{user}
+          description: "The resource name of the user.\r\nFormat: users/{user}"
           in: path
           required: true
           type: string
@@ -2361,9 +2141,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: webhook.name
-          description: |-
-            The resource name of the webhook.
-            Format: users/{user}/webhooks/{webhook}
+          description: "The resource name of the webhook.\r\nFormat: users/{user}/webhooks/{webhook}"
           in: path
           required: true
           type: string
@@ -2403,9 +2181,7 @@ paths:
             $ref: '#/definitions/googlerpcStatus'
       parameters:
         - name: name
-          description: |-
-            Required. The attachment name of the attachment.
-            Format: attachments/{attachment}
+          description: "Required. The attachment name of the attachment.\r\nFormat: attachments/{attachment}"
           in: path
           required: true
           type: string
@@ -2443,14 +2219,10 @@ definitions:
     properties:
       username:
         type: string
-        description: |-
-          The username to sign in with.
-          Required field for password-based authentication.
+        description: "The username to sign in with.\r\nRequired field for password-based authentication."
       password:
         type: string
-        description: |-
-          The password to sign in with.
-          Required field for password-based authentication.
+        description: "The password to sign in with.\r\nRequired field for password-based authentication."
     description: Nested message for password-based authentication credentials.
     required:
       - username
@@ -2461,19 +2233,13 @@ definitions:
       idpId:
         type: integer
         format: int32
-        description: |-
-          The ID of the SSO provider.
-          Required field to identify the SSO provider.
+        description: "The ID of the SSO provider.\r\nRequired field to identify the SSO provider."
       code:
         type: string
-        description: |-
-          The authorization code from the SSO provider.
-          Required field for completing the SSO flow.
+        description: "The authorization code from the SSO provider.\r\nRequired field for completing the SSO flow."
       redirectUri:
         type: string
-        description: |-
-          The redirect URI used in the SSO flow.
-          Required field for security validation.
+        description: "The redirect URI used in the SSO flow.\r\nRequired field for security validation."
     description: Nested message for SSO authentication credentials.
     required:
       - idpId
@@ -2583,6 +2349,10 @@ definitions:
         type: string
       usePathStyle:
         type: boolean
+      urlPrefix:
+        type: string
+      urlSuffix:
+        type: string
     title: 'Reference: https://developers.cloudflare.com/r2/examples/aws/aws-sdk-go/'
   apiHttpBody:
     type: object
@@ -2651,14 +2421,10 @@ definitions:
     properties:
       memo:
         type: string
-        title: |-
-          The memo name of comment.
-          Format: memos/{memo}
+        title: "The memo name of comment.\r\nFormat: memos/{memo}"
       relatedMemo:
         type: string
-        title: |-
-          The name of related memo.
-          Format: memos/{memo}
+        title: "The name of related memo.\r\nFormat: memos/{memo}"
     description: ActivityMemoCommentPayload represents the payload of a memo comment activity.
   apiv1ActivityPayload:
     type: object
@@ -2682,9 +2448,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the identity provider.
-          Format: identityProviders/{idp}
+        title: "The resource name of the identity provider.\r\nFormat: identityProviders/{idp}"
       type:
         $ref: '#/definitions/apiv1IdentityProviderType'
         description: Required. The type of the identity provider.
@@ -2732,17 +2496,13 @@ definitions:
     properties:
       name:
         type: string
-        description: |-
-          The resource name of the memo.
-          Format: memos/{memo}, memo is the user defined id or uuid.
+        description: "The resource name of the memo.\r\nFormat: memos/{memo}, memo is the user defined id or uuid."
       state:
         $ref: '#/definitions/v1State'
         description: The state of the memo.
       creator:
         type: string
-        title: |-
-          The name of the creator.
-          Format: users/{user}
+        title: "The name of the creator.\r\nFormat: users/{user}"
         readOnly: true
       createTime:
         type: string
@@ -2805,9 +2565,7 @@ definitions:
         readOnly: true
       parent:
         type: string
-        title: |-
-          Output only. The name of the parent memo.
-          Format: memos/{memo}
+        title: "Output only. The name of the parent memo.\r\nFormat: memos/{memo}"
         readOnly: true
       snippet:
         type: string
@@ -2844,9 +2602,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the shortcut.
-          Format: users/{user}/shortcuts/{shortcut}
+        title: "The resource name of the shortcut.\r\nFormat: users/{user}/shortcuts/{shortcut}"
       title:
         type: string
         description: The title of the shortcut.
@@ -2860,9 +2616,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the user whose setting this is.
-          Format: users/{user}
+        title: "The resource name of the user whose setting this is.\r\nFormat: users/{user}"
       locale:
         type: string
         description: The preferred locale of the user.
@@ -2874,19 +2628,14 @@ definitions:
         description: The default visibility of the memo.
       theme:
         type: string
-        description: |-
-          The preferred theme of the user.
-          This references a CSS file in the web/public/themes/ directory.
-          If not set, the default theme will be used.
+        description: "The preferred theme of the user.\r\nThis references a CSS file in the web/public/themes/ directory.\r\nIf not set, the default theme will be used."
     title: User settings message
   apiv1Webhook:
     type: object
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the webhook.
-          Format: users/{user}/webhooks/{webhook}
+        title: "The resource name of the webhook.\r\nFormat: users/{user}/webhooks/{webhook}"
       displayName:
         type: string
         description: The display name of the webhook.
@@ -2914,9 +2663,7 @@ definitions:
     properties:
       theme:
         type: string
-        description: |-
-          theme is the name of the selected theme.
-          This references a CSS file in the web/public/themes/ directory.
+        description: "theme is the name of the selected theme.\r\nThis references a CSS file in the web/public/themes/ directory."
       disallowUserRegistration:
         type: boolean
         description: disallow_user_registration disallows user registration.
@@ -2935,10 +2682,7 @@ definitions:
       weekStartDayOffset:
         type: integer
         format: int32
-        description: |-
-          week_start_day_offset is the week start day offset from Sunday.
-          0: Sunday, 1: Monday, 2: Tuesday, 3: Wednesday, 4: Thursday, 5: Friday, 6: Saturday
-          Default is Sunday.
+        description: "week_start_day_offset is the week start day offset from Sunday.\r\n0: Sunday, 1: Monday, 2: Tuesday, 3: Wednesday, 4: Thursday, 5: Friday, 6: Saturday\r\nDefault is Sunday."
       disallowChangeUsername:
         type: boolean
         description: disallow_change_username disallows changing username.
@@ -2988,9 +2732,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The name of the workspace setting.
-          Format: workspace/settings/{setting}
+        title: "The name of the workspace setting.\r\nFormat: workspace/settings/{setting}"
       generalSetting:
         $ref: '#/definitions/apiv1WorkspaceGeneralSetting'
       storageSetting:
@@ -3006,9 +2748,7 @@ definitions:
         description: storage_type is the storage type.
       filepathTemplate:
         type: string
-        title: |-
-          The template of file path.
-          e.g. assets/{timestamp}_{filename}
+        title: "The template of file path.\r\ne.g. assets/{timestamp}_{filename}"
       uploadSizeLimitMb:
         type: string
         format: int64
@@ -3167,15 +2907,11 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The name of the activity.
-          Format: activities/{id}
+        title: "The name of the activity.\r\nFormat: activities/{id}"
         readOnly: true
       creator:
         type: string
-        title: |-
-          The name of the creator.
-          Format: users/{user}
+        title: "The name of the creator.\r\nFormat: users/{user}"
         readOnly: true
       type:
         $ref: '#/definitions/v1ActivityType'
@@ -3212,9 +2948,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The name of the attachment.
-          Format: attachments/{attachment}
+        title: "The name of the attachment.\r\nFormat: attachments/{attachment}"
       createTime:
         type: string
         format: date-time
@@ -3240,9 +2974,7 @@ definitions:
         readOnly: true
       memo:
         type: string
-        title: |-
-          Optional. The related memo. Refer to `Memo.name`.
-          Format: memos/{memo}
+        title: "Optional. The related memo. Refer to `Memo.name`.\r\nFormat: memos/{memo}"
     required:
       - filename
       - type
@@ -3308,9 +3040,7 @@ definitions:
       lastAccessedAt:
         type: string
         format: date-time
-        description: |-
-          Last time the session was accessed.
-          Used for sliding expiration calculation (last_accessed_time + 2 weeks).
+        description: "Last time the session was accessed.\r\nUsed for sliding expiration calculation (last_accessed_time + 2 weeks)."
   v1EmbeddedContentNode:
     type: object
     properties:
@@ -3333,9 +3063,7 @@ definitions:
       lastAccessedAt:
         type: string
         format: date-time
-        description: |-
-          Last time the session was accessed.
-          Used for sliding expiration calculation (last_accessed_time + 2 weeks).
+        description: "Last time the session was accessed.\r\nUsed for sliding expiration calculation (last_accessed_time + 2 weeks)."
   v1HTMLElementNode:
     type: object
     properties:
@@ -3378,20 +3106,14 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the inbox.
-          Format: inboxes/{inbox}
+        title: "The resource name of the inbox.\r\nFormat: inboxes/{inbox}"
       sender:
         type: string
-        title: |-
-          The sender of the inbox notification.
-          Format: users/{user}
+        title: "The sender of the inbox notification.\r\nFormat: users/{user}"
         readOnly: true
       receiver:
         type: string
-        title: |-
-          The receiver of the inbox notification.
-          Format: users/{user}
+        title: "The receiver of the inbox notification.\r\nFormat: users/{user}"
         readOnly: true
       status:
         $ref: '#/definitions/v1InboxStatus'
@@ -3480,10 +3202,7 @@ definitions:
         description: The activities.
       nextPageToken:
         type: string
-        description: |-
-          A token to retrieve the next page of results.
-          Pass this value in the page_token field in the subsequent call to `ListActivities`
-          method to retrieve the next page of results.
+        description: "A token to retrieve the next page of results.\r\nPass this value in the page_token field in the subsequent call to `ListActivities`\r\nmethod to retrieve the next page of results."
   v1ListAllUserStatsResponse:
     type: object
     properties:
@@ -3511,9 +3230,7 @@ definitions:
         description: The list of attachments.
       nextPageToken:
         type: string
-        description: |-
-          A token that can be sent as `page_token` to retrieve the next page.
-          If this field is omitted, there are no subsequent pages.
+        description: "A token that can be sent as `page_token` to retrieve the next page.\r\nIf this field is omitted, there are no subsequent pages."
       totalSize:
         type: integer
         format: int32
@@ -3538,9 +3255,7 @@ definitions:
         description: The list of inboxes.
       nextPageToken:
         type: string
-        description: |-
-          A token that can be sent as `page_token` to retrieve the next page.
-          If this field is omitted, there are no subsequent pages.
+        description: "A token that can be sent as `page_token` to retrieve the next page.\r\nIf this field is omitted, there are no subsequent pages."
       totalSize:
         type: integer
         format: int32
@@ -3620,9 +3335,7 @@ definitions:
         description: The list of memos.
       nextPageToken:
         type: string
-        description: |-
-          A token that can be sent as `page_token` to retrieve the next page.
-          If this field is omitted, there are no subsequent pages.
+        description: "A token that can be sent as `page_token` to retrieve the next page.\r\nIf this field is omitted, there are no subsequent pages."
       totalSize:
         type: integer
         format: int32
@@ -3685,9 +3398,7 @@ definitions:
         description: The list of users.
       nextPageToken:
         type: string
-        description: |-
-          A token that can be sent as `page_token` to retrieve the next page.
-          If this field is omitted, there are no subsequent pages.
+        description: "A token that can be sent as `page_token` to retrieve the next page.\r\nIf this field is omitted, there are no subsequent pages."
       totalSize:
         type: integer
         format: int32
@@ -3743,9 +3454,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the memo.
-          Format: memos/{memo}
+        title: "The resource name of the memo.\r\nFormat: memos/{memo}"
       snippet:
         type: string
         description: Output only. The snippet of the memo content. Plain text only.
@@ -3912,22 +3621,15 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the reaction.
-          Format: reactions/{reaction}
+        title: "The resource name of the reaction.\r\nFormat: reactions/{reaction}"
         readOnly: true
       creator:
         type: string
-        title: |-
-          The resource name of the creator.
-          Format: users/{user}
+        title: "The resource name of the creator.\r\nFormat: users/{user}"
         readOnly: true
       contentId:
         type: string
-        title: |-
-          The resource name of the content.
-          For memo reactions, this should be the memo's resource name.
-          Format: memos/{memo}
+        title: "The resource name of the content.\r\nFor memo reactions, this should be the memo's resource name.\r\nFormat: memos/{memo}"
       reactionType:
         type: string
         description: "Required. The type of reaction (e.g., \"\U0001F44D\", \"❤️\", \"\U0001F604\")."
@@ -4085,9 +3787,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the user.
-          Format: users/{user}
+        title: "The resource name of the user.\r\nFormat: users/{user}"
       role:
         $ref: '#/definitions/UserRole'
         description: The role of the user.
@@ -4131,9 +3831,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the access token.
-          Format: users/{user}/accessTokens/{access_token}
+        title: "The resource name of the access token.\r\nFormat: users/{user}/accessTokens/{access_token}"
       accessToken:
         type: string
         description: Output only. The access token value.
@@ -4156,9 +3854,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the session.
-          Format: users/{user}/sessions/{session}
+        title: "The resource name of the session.\r\nFormat: users/{user}/sessions/{session}"
       sessionId:
         type: string
         description: The session ID.
@@ -4171,9 +3867,7 @@ definitions:
       lastAccessedTime:
         type: string
         format: date-time
-        description: |-
-          The timestamp when the session was last accessed.
-          Used for sliding expiration calculation (last_accessed_time + 2 weeks).
+        description: "The timestamp when the session was last accessed.\r\nUsed for sliding expiration calculation (last_accessed_time + 2 weeks)."
         readOnly: true
       clientInfo:
         $ref: '#/definitions/v1UserSessionClientInfo'
@@ -4202,9 +3896,7 @@ definitions:
     properties:
       name:
         type: string
-        title: |-
-          The resource name of the user whose stats these are.
-          Format: users/{user}
+        title: "The resource name of the user whose stats these are.\r\nFormat: users/{user}"
       memoDisplayTimestamps:
         type: array
         items:
@@ -4243,9 +3935,7 @@ definitions:
     properties:
       owner:
         type: string
-        title: |-
-          The name of instance owner.
-          Format: users/{user}
+        title: "The name of instance owner.\r\nFormat: users/{user}"
       version:
         type: string
         description: Version is the current version of instance.

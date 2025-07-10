@@ -243,7 +243,7 @@ export function CreateIdentityProviderDialog({ open, onOpenChange, identityProvi
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto bg-card">
         <DialogHeader>
           <DialogTitle>{t(isCreating ? "setting.sso-section.create-sso" : "setting.sso-section.update-sso")}</DialogTitle>
         </DialogHeader>

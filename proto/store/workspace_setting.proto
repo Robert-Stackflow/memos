@@ -94,6 +94,8 @@ message StorageS3Config {
   string region = 4;
   string bucket = 5;
   bool use_path_style = 6;
+  string url_prefix = 7;
+  string url_suffix = 8;
 }
 
 message WorkspaceMemoRelatedSetting {

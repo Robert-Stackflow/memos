@@ -414,7 +414,8 @@ func SaveAttachmentBlob(ctx context.Context, profile *profile.Profile, stores *s
 		return errors.Wrap(err, "Failed to find workspace storage setting")
 	}
 
-	if workspaceStorageSetting.StorageType == storepb.WorkspaceStorageSetting_LOCAL {
+	switch workspaceStorageSetting.StorageType {
+	case storepb.WorkspaceStorageSetting_LOCAL:
 		filepathTemplate := "assets/{timestamp}_{filename}"
 		if workspaceStorageSetting.FilepathTemplate != "" {
 			filepathTemplate = workspaceStorageSetting.FilepathTemplate
@@ -449,7 +450,7 @@ func SaveAttachmentBlob(ctx context.Context, profile *profile.Profile, stores *s
 		create.Reference = internalPath
 		create.Blob = nil
 		create.StorageType = storepb.AttachmentStorageType_LOCAL
-	} else if workspaceStorageSetting.StorageType == storepb.WorkspaceStorageSetting_S3 {
+	case storepb.WorkspaceStorageSetting_S3:
 		s3Config := workspaceStorageSetting.S3Config
 		if s3Config == nil {
 			return errors.Errorf("No actived external storage found")
@@ -468,12 +469,15 @@ func SaveAttachmentBlob(ctx context.Context, profile *profile.Profile, stores *s
 		if err != nil {
 			return errors.Wrap(err, "Failed to upload via s3 client")
 		}
+
 		presignURL, err := s3Client.PresignGetObject(ctx, key)
 		if err != nil {
 			return errors.Wrap(err, "Failed to presign via s3 client")
 		}
+		referenceURL := buildReferenceURL(s3Config.UrlPrefix, key, s3Config.UrlSuffix)
 
 		create.Reference = presignURL
+		create.Reference = referenceURL
 		create.Blob = nil
 		create.StorageType = storepb.AttachmentStorageType_S3
 		create.Payload = &storepb.AttachmentPayload{
@@ -488,6 +492,18 @@ func SaveAttachmentBlob(ctx context.Context, profile *profile.Profile, stores *s
 	}
 
 	return nil
+}
+
+func buildReferenceURL(prefix, key, suffix string) string {
+	prefix = strings.TrimRight(prefix, "/")
+	key = strings.TrimLeft(key, "/")
+	suffix = strings.TrimLeft(suffix, "/")
+
+	ref := fmt.Sprintf("%s/%s", prefix, key)
+	if suffix != "" {
+		ref = fmt.Sprintf("%s%s", ref, suffix)
+	}
+	return ref
 }
 
 func (s *APIV1Service) GetAttachmentBlob(attachment *store.Attachment) ([]byte, error) {

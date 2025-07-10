@@ -71,7 +71,7 @@ const WorkspaceSection = observer(() => {
 
   return (
     <div className="w-full flex flex-col gap-2 pt-2 pb-4">
-      <p className="font-medium text-foreground">{t("common.basic")}</p>
+      <p className="font-medium text-muted-foreground">{t("common.basic")}</p>
       <div className="w-full flex flex-row justify-between items-center">
         <div>
           {t("setting.system-section.server-name")}:{" "}
@@ -82,20 +82,20 @@ const WorkspaceSection = observer(() => {
         </Button>
       </div>
       <Separator />
-      <p className="font-medium text-foreground">{t("setting.system-section.title")}</p>
-      <div className="w-full flex flex-row justify-between items-center">
-        <span>Theme</span>
+      <p className="font-medium text-muted-foreground">{t("setting.system-section.title")}</p>
+      {/* <div className="w-full flex flex-row justify-between items-center">
+        <span>{t("setting.system-section.title")}</span>
         <ThemeSelector
           value={workspaceGeneralSetting.theme || "default"}
           onValueChange={(value) => updatePartialSetting({ theme: value })}
           className="min-w-fit"
         />
-      </div>
+      </div> */}
       <div className="w-full flex flex-row justify-between items-center">
         <span>{t("setting.system-section.additional-style")}</span>
       </div>
       <Textarea
-        className="font-mono w-full"
+        className="font-mono w-full max-h-[8rem]"
         rows={3}
         placeholder={t("setting.system-section.additional-style-placeholder")}
         value={workspaceGeneralSetting.additionalStyle}
@@ -105,7 +105,7 @@ const WorkspaceSection = observer(() => {
         <span>{t("setting.system-section.additional-script")}</span>
       </div>
       <Textarea
-        className="font-mono w-full"
+        className="font-mono w-full max-h-[8rem]"
         rows={3}
         placeholder={t("setting.system-section.additional-script-placeholder")}
         value={workspaceGeneralSetting.additionalScript}

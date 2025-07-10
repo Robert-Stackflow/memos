@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 interface PreviewImageDialogProps {
   open: boolean;
@@ -57,6 +57,10 @@ export function PreviewImageDialog({ open, onOpenChange, imgUrls, initialIndex =
         className="!w-[100vw] !h-[100vh] !max-w-[100vw] !max-h-[100vw] p-0 border-0 shadow-none bg-transparent [&>button]:hidden"
         aria-describedby="image-preview-description"
       >
+        <DialogHeader>
+          <DialogTitle></DialogTitle>
+          <DialogDescription></DialogDescription>
+        </DialogHeader>
         {/* Close button */}
         <div className="fixed top-4 right-4 z-50">
           <Button
@@ -75,7 +79,7 @@ export function PreviewImageDialog({ open, onOpenChange, imgUrls, initialIndex =
           <img
             src={imgUrls[safeIndex]}
             alt={`Preview image ${safeIndex + 1} of ${imgUrls.length}`}
-            className="max-w-full max-h-full object-contain select-none"
+            className="max-w-full max-h-full object-cover select-none"
             onClick={handleImageClick}
             draggable={false}
             loading="eager"

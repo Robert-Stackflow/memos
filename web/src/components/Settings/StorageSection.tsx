@@ -110,6 +110,14 @@ const StorageSection = observer(() => {
     handlePartialS3ConfigChanged({ bucket: event.target.value });
   };
 
+  const handleS3ConfigUrlPrefixChanged = async (event: React.FocusEvent<HTMLInputElement>) => {
+    handlePartialS3ConfigChanged({ urlPrefix: event.target.value });
+  };
+
+  const handleS3ConfigUrlSuffixChanged = async (event: React.FocusEvent<HTMLInputElement>) => {
+    handlePartialS3ConfigChanged({ urlSuffix: event.target.value });
+  };
+
   const handleS3ConfigUsePathStyleChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
     handlePartialS3ConfigChanged({
       usePathStyle: event.target.checked,
@@ -134,27 +142,29 @@ const StorageSection = observer(() => {
 
   return (
     <div className="w-full flex flex-col gap-2 pt-2 pb-4">
-      <div className="font-medium text-muted-foreground">{t("setting.storage-section.current-storage")}</div>
-      <RadioGroup
-        value={workspaceStorageSetting.storageType.toString()}
-        onValueChange={(value) => {
-          handleStorageTypeChanged(parseInt(value) as unknown as WorkspaceStorageSetting_StorageType);
-        }}
-        className="flex flex-row gap-4"
-      >
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value={WorkspaceStorageSetting_StorageType.DATABASE.toString()} id="database" />
-          <Label htmlFor="database">{t("setting.storage-section.type-database")}</Label>
-        </div>
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value={WorkspaceStorageSetting_StorageType.LOCAL.toString()} id="local" />
-          <Label htmlFor="local">{t("setting.storage-section.type-local")}</Label>
-        </div>
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value={WorkspaceStorageSetting_StorageType.S3.toString()} id="s3" />
-          <Label htmlFor="s3">S3</Label>
-        </div>
-      </RadioGroup>
+      <div className="flex flex-col justify-between mt-2">
+        <div className="font-medium text-muted-foreground mb-2">{t("setting.storage-section.current-storage")}</div>
+        <RadioGroup
+          value={workspaceStorageSetting.storageType}
+          onValueChange={(value) => {
+            handleStorageTypeChanged(value as WorkspaceStorageSetting_StorageType);
+          }}
+          className="flex flex-row gap-4"
+        >
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value={WorkspaceStorageSetting_StorageType.DATABASE} id="database" />
+            <Label htmlFor="database">{t("setting.storage-section.type-database")}</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value={WorkspaceStorageSetting_StorageType.LOCAL} id="local" />
+            <Label htmlFor="local">{t("setting.storage-section.type-local")}</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value={WorkspaceStorageSetting_StorageType.S3} id="s3" />
+            <Label htmlFor="s3">S3</Label>
+          </div>
+        </RadioGroup>
+      </div>
       <div className="w-full flex flex-row justify-between items-center">
         <div className="flex flex-row items-center">
           <span className="text-muted-foreground mr-1">{t("setting.system-section.max-upload-size")}</span>
@@ -172,8 +182,8 @@ const StorageSection = observer(() => {
         <Input className="w-16 font-mono" value={workspaceStorageSetting.uploadSizeLimitMb} onChange={handleMaxUploadSizeChanged} />
       </div>
       {workspaceStorageSetting.storageType !== WorkspaceStorageSetting_StorageType.DATABASE && (
-        <div className="w-full flex flex-row justify-between items-center">
-          <span className="text-muted-foreground mr-1">{t("setting.storage-section.filepath-template")}</span>
+        <div className="w-full flex flex-col justify-between items-start">
+          <span className="text-muted-foreground mb-1">{t("setting.storage-section.filepath-template")}</span>
           <Input
             value={workspaceStorageSetting.filepathTemplate}
             placeholder="assets/{timestamp}_{filename}"
@@ -183,31 +193,39 @@ const StorageSection = observer(() => {
       )}
       {workspaceStorageSetting.storageType === WorkspaceStorageSetting_StorageType.S3 && (
         <>
-          <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-muted-foreground mr-1">Access key id</span>
-            <Input value={workspaceStorageSetting.s3Config?.accessKeyId} placeholder="" onChange={handleS3ConfigAccessKeyIdChanged} />
+          <div className="w-full flex flex-col justify-between items-start">
+            <span className="text-muted-foreground mb-1">{t("setting.storage-section.accesskey")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.accessKeyId} placeholder={t("setting.storage-section.accesskey-placeholder")} onChange={handleS3ConfigAccessKeyIdChanged} />
           </div>
-          <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-muted-foreground mr-1">Access key secret</span>
+          <div className="w-full flex flex-col justify-between items-start">
+            <span className="text-muted-foreground mb-1">{t("setting.storage-section.secretkey")}</span>
             <Input
               value={workspaceStorageSetting.s3Config?.accessKeySecret}
-              placeholder=""
+              placeholder={t("setting.storage-section.secretkey-placeholder")}
               onChange={handleS3ConfigAccessKeySecretChanged}
             />
           </div>
-          <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-muted-foreground mr-1">Endpoint</span>
-            <Input value={workspaceStorageSetting.s3Config?.endpoint} placeholder="" onChange={handleS3ConfigEndpointChanged} />
+          <div className="w-full flex flex-col justify-between items-start">
+            <span className="text-muted-foreground mb-1">{t("setting.storage-section.endpoint")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.endpoint} placeholder={t("setting.storage-section.endpoint-placeholder")} onChange={handleS3ConfigEndpointChanged} />
           </div>
-          <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-muted-foreground mr-1">Region</span>
-            <Input value={workspaceStorageSetting.s3Config?.region} placeholder="" onChange={handleS3ConfigRegionChanged} />
+          <div className="w-full flex flex-col justify-between items-start">
+            <span className="text-muted-foreground mb-1">{t("setting.storage-section.region")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.region} placeholder={t("setting.storage-section.region-placeholder")} onChange={handleS3ConfigRegionChanged} />
           </div>
-          <div className="w-full flex flex-row justify-between items-center">
-            <span className="text-muted-foreground mr-1">Bucket</span>
-            <Input value={workspaceStorageSetting.s3Config?.bucket} placeholder="" onChange={handleS3ConfigBucketChanged} />
+          <div className="w-full flex flex-col justify-between items-start mb-1">
+            <span className="text-muted-foreground mb-1">{t("setting.storage-section.bucket")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.bucket} placeholder={t("setting.storage-section.bucket-placeholder")} onChange={handleS3ConfigBucketChanged} />
           </div>
-          <div className="w-full flex flex-row justify-between items-center">
+          <div className="w-full flex flex-col justify-between items-start mb-1">
+            <span className="text-muted-foreground mb-1">{t("setting.storage-section.url-prefix")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.urlPrefix} placeholder={t("setting.storage-section.url-prefix-placeholder")} onChange={handleS3ConfigUrlPrefixChanged} />
+          </div>
+          <div className="w-full flex flex-col justify-between items-start mb-1">
+            <span className="text-muted-foreground mb-1">{t("setting.storage-section.url-suffix")}</span>
+            <Input value={workspaceStorageSetting.s3Config?.urlSuffix} placeholder={t("setting.storage-section.url-suffix-placeholder")} onChange={handleS3ConfigUrlSuffixChanged} />
+          </div>
+          <div className="w-full flex flex-row justify-between items-start">
             <span className="text-muted-foreground mr-1">Use Path Style</span>
             <Switch
               checked={workspaceStorageSetting.s3Config?.usePathStyle}

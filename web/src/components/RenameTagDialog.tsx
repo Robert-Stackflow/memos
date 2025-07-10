@@ -54,7 +54,7 @@ export function RenameTagDialog({ open, onOpenChange, tag, onSuccess }: RenameTa
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md bg-card">
         <DialogHeader>
           <DialogTitle>{t("tag.rename-tag")}</DialogTitle>
         </DialogHeader>

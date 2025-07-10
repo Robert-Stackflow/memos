@@ -219,6 +219,8 @@ func convertWorkspaceStorageSettingFromStore(settingpb *storepb.WorkspaceStorage
 			Endpoint:        settingpb.S3Config.Endpoint,
 			Region:          settingpb.S3Config.Region,
 			Bucket:          settingpb.S3Config.Bucket,
+			UrlPrefix:		 settingpb.S3Config.UrlPrefix,
+			UrlSuffix:		 settingpb.S3Config.UrlSuffix,
 			UsePathStyle:    settingpb.S3Config.UsePathStyle,
 		}
 	}
@@ -241,6 +243,8 @@ func convertWorkspaceStorageSettingToStore(setting *v1pb.WorkspaceStorageSetting
 			Endpoint:        setting.S3Config.Endpoint,
 			Region:          setting.S3Config.Region,
 			Bucket:          setting.S3Config.Bucket,
+			UrlPrefix: 		 setting.S3Config.UrlPrefix,	
+			UrlSuffix: 		 setting.S3Config.UrlSuffix,	
 			UsePathStyle:    setting.S3Config.UsePathStyle,
 		}
 	}

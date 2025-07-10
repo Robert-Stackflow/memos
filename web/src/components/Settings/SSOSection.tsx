@@ -1,4 +1,4 @@
-import { MoreVerticalIcon } from "lucide-react";
+import { MoreVerticalIcon, PlusIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -59,14 +59,14 @@ const SSOSection = () => {
     <div className="w-full flex flex-col gap-2 pt-2 pb-4">
       <div className="w-full flex flex-row justify-between items-center gap-1">
         <div className="flex flex-row items-center gap-1">
-          <span className="font-mono text-muted-foreground">{t("setting.sso-section.sso-list")}</span>
+          <span className="font-medium text-muted-foreground">{t("setting.sso-section.sso-list")}</span>
           <LearnMore url="https://www.usememos.com/docs/advanced-settings/sso" />
         </div>
         <Button color="primary" onClick={handleCreateIdentityProvider}>
+          <PlusIcon className="w-4 h-4 mr-2" />
           {t("common.create")}
         </Button>
       </div>
-      <Separator />
       {identityProviderList.map((identityProvider) => (
         <div
           key={identityProvider.name}
@@ -99,7 +99,7 @@ const SSOSection = () => {
         </div>
       )}
 
-      <div className="w-full mt-4">
+      <div className="w-full mt-2">
         <p className="text-sm">{t("common.learn-more")}:</p>
         <ul className="list-disc list-inside text-sm ml-4">
           <li>

@@ -92,7 +92,7 @@ export function CreateAccessTokenDialog({ open, onOpenChange, onSuccess }: Creat
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md bg-card">
         <DialogHeader>
           <DialogTitle>{t("setting.access-token-section.create-dialog.create-access-token")}</DialogTitle>
         </DialogHeader>

@@ -32,7 +32,7 @@ const AppearanceSelect: FC<Props> = (props: Props) => {
   return (
     <Select value={value} onValueChange={handleSelectChange}>
       <SelectTrigger>
-        <SelectValue placeholder="Select appearance" />
+        <SelectValue placeholder={t("setting.system-section.customize-server.appearance-placeholder")} />
       </SelectTrigger>
       <SelectContent>
         {appearanceList.map((item) => (

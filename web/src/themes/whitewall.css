@@ -1,5 +1,5 @@
 :root {
-  --background: oklch(1 0 0);
+  --background: rgb(244 244 245);
   --foreground: oklch(0.15 0.01 270);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0.01 270);
