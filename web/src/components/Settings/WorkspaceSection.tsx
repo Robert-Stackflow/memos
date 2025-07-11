@@ -1,5 +1,5 @@
 import { isEqual } from "lodash-es";
-import { ExternalLinkIcon } from "lucide-react";
+import { ExternalLinkIcon, PenLineIcon } from "lucide-react";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -78,6 +78,7 @@ const WorkspaceSection = observer(() => {
           <span className="font-mono font-bold">{workspaceGeneralSetting.customProfile?.title || "Memos"}</span>
         </div>
         <Button variant="outline" onClick={handleUpdateCustomizedProfileButtonClick}>
+          <PenLineIcon className="w-4 h-4 mx-auto mr-1" />
           {t("common.edit")}
         </Button>
       </div>

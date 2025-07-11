@@ -1,4 +1,4 @@
-import { ExternalLinkIcon, TrashIcon } from "lucide-react";
+import { ExternalLinkIcon, TrashIcon, PlusIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -50,6 +50,7 @@ const WebhookSection = () => {
         </div>
         <div>
           <Button color="primary" onClick={() => setIsCreateWebhookDialogOpen(true)}>
+            <PlusIcon className="w-4 h-4 mr-2" />
             {t("common.create")}
           </Button>
         </div>

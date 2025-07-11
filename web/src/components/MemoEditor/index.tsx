@@ -523,8 +523,8 @@ const MemoEditor = observer((props: Props) => {
               </Button>
             )}
             <Button color="primary" disabled={!allowSave || state.isRequesting} onClick={handleSaveBtnClick}>
+              {!state.isRequesting ? <SendIcon className="w-4 h-auto mr-1" /> : <LoaderIcon className="w-4 h-auto ml-1 animate-spin" />}
               {t("editor.save")}
-              {!state.isRequesting ? <SendIcon className="w-4 h-auto ml-1" /> : <LoaderIcon className="w-4 h-auto ml-1 animate-spin" />}
             </Button>
           </div>
         </div>

@@ -122,9 +122,9 @@ const MemoDetail = observer(() => {
               {comments.length === 0 ? (
                 showCreateCommentButton && (
                   <div className="w-full flex flex-row justify-center items-center py-6">
-                    <Button variant="ghost" onClick={handleShowCommentEditor}>
-                      <span className="text-muted-foreground">{t("memo.comment.write-a-comment")}</span>
+                    <Button variant="ghost" onClick={handleShowCommentEditor}  className="cursor-pointer">
                       <MessageCircleIcon className="ml-2 w-5 h-auto text-muted-foreground" />
+                      <span className="text-muted-foreground">{t("memo.comment.write-a-comment")}</span>
                     </Button>
                   </div>
                 )
@@ -137,7 +137,7 @@ const MemoDetail = observer(() => {
                       <span className="text-muted-foreground text-sm ml-1">({comments.length})</span>
                     </div>
                     {showCreateCommentButton && (
-                      <Button variant="ghost" className="text-muted-foreground" onClick={handleShowCommentEditor}>
+                      <Button variant="ghost" className="text-muted-foreground cursor-pointer" onClick={handleShowCommentEditor}>
                         {t("memo.comment.write-a-comment")}
                       </Button>
                     )}

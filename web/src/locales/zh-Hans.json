@@ -1,14 +1,14 @@
 {
   "about": {
     "blogs": "博客",
-    "description": "Memos 是一个隐私优先、轻量级的笔记解决方案，可以轻松捕捉和分享你的想法。",
+    "description": "Memos 是一个隐私优先、轻量级的笔记解决方案，可以轻松捕捉和分享你的想法",
     "documents": "文档",
     "github-repository": "GitHub 仓库",
     "official-website": "官网"
   },
   "auth": {
     "create-your-account": "创建您的账户",
-    "host-tip": "您正在注册为站点管理员。",
+    "host-tip": "您正在注册为站点管理员",
     "new-password": "新密码",
     "repeat-new-password": "重复新密码",
     "sign-in-tip": "已有账户？",
@@ -121,7 +121,7 @@
     "has-task-list": "有待办"
   },
   "inbox": {
-    "memo-comment": "{{user}} 评论了您的“{{memo}}”。",
+    "memo-comment": "{{user}} 评论了您的“{{memo}}”",
     "version-update": "新版本 {{version}} 现已推出！"
   },
   "markdown": {
@@ -148,7 +148,7 @@
     "filters": "过滤器",
     "links": "链接",
     "load-more": "加载更多",
-    "no-archived-memos": "没有已归档备忘录。",
+    "no-archived-memos": "没有已归档备忘录",
     "no-memos": "无备忘录",
     "order-by": "排序",
     "remove-completed-task-list-items": "移除已办",
@@ -172,16 +172,16 @@
     "change-memo-created-time": "更改备忘录创建时间",
     "copied": "已复制",
     "deleted-successfully": "成功删除！",
-    "fill-all": "请填写所有栏目。",
+    "fill-all": "请填写所有栏目",
     "maximum-upload-size-is": "允许的最大上传大小为 {{size}} MiB",
     "memo-not-found": "找不到备忘录",
-    "new-password-not-match": "新密码不一致。",
-    "no-data": "未找到任何数据。",
+    "new-password-not-match": "新密码不一致",
+    "no-data": "未找到任何数据",
     "password-changed": "密码已修改",
-    "password-not-match": "密码不一致。",
+    "password-not-match": "密码不一致",
     "remove-completed-task-list-items-successfully": "移除成功！",
     "restored-successfully": "恢复成功",
-    "succeed-copy-link": "复制链接到剪贴板成功。",
+    "succeed-copy-link": "复制链接成功",
     "update-succeed": "更新成功",
     "user-not-found": "未找到该用户"
   },
@@ -217,10 +217,10 @@
     "file-drag-drop-prompt": "将您的文件拖放到此处以上传文件",
     "linked-amount": "链接的备忘录数量",
     "no-files-selected": "没有文件被选中",
-    "no-resources": "没有资源。",
+    "no-resources": "没有资源",
     "no-unused-resources": "没有可删除的资源",
     "reset-link": "重置链接",
-    "reset-link-prompt": "您确定要重置链接吗？这将导致当前使用的链接失效。（此操作不可逆）",
+    "reset-link-prompt": "您确定要重置链接吗？这将导致当前使用的链接失效（此操作不可逆）",
     "reset-resource-link": "重置资源链接",
     "unused-resources": "未使用到的资源"
   },
@@ -247,14 +247,14 @@
     },
     "user-sessions-section": {
       "title": "用户会话",
-      "description": "当前账号下全部的会话，你可以撤销除当前会话以外的所有会话。",
+      "description": "当前账号下全部的会话，你可以撤销除当前会话以外的所有会话",
       "device": "设备",
       "location": "位置",
       "last-active": "最后活跃时间",
       "expires": "过期时间",
       "current": "当前设备",
       "never": "从未",
-      "session-revocation": "您确定要撤销会话 {{sessionId}} 吗？删除后您将需要在该设备上再次登录。",
+      "session-revocation": "您确定要撤销会话 {{sessionId}} 吗？删除后您将需要在该设备上再次登录",
       "session-revoked": "会话已成功撤销",
       "revoke-session": "撤销会话",
       "cannot-revoke-current": "无法撤销当前会话",
@@ -389,7 +389,7 @@
       },
       "disable-markdown-shortcuts-in-editor": "禁用编辑器中的 Markdown 快捷键",
       "disable-password-login": "禁用密码登录",
-      "disable-password-login-final-warning": "如果您知道自己在做什么，请输入 \"CONFIRM\"。",
+      "disable-password-login-final-warning": "如果您知道自己在做什么，请输入 \"CONFIRM\"",
       "disable-password-login-warning": "所有用户将无法使用密码登录。如果配置的身份提供程序失效，不在数据库中恢复此设置将无法登录。删除身份提供程序时也要格外小心",
       "disable-public-memos": "禁用公开备忘录",
       "display-with-updated-time": "根据最后修改时间顺序显示",
@@ -398,7 +398,7 @@
       "enable-password-login": "启用密码登录",
       "enable-password-login-warning": "启用所有用户的密码登录。如果希望用户同时使用单点登录和密码登录，请开启密码登录",
       "max-upload-size": "最大上传大小 (MiB)",
-      "max-upload-size-hint": "建议值为 32 MiB。",
+      "max-upload-size-hint": "建议值为 32 MiB",
       "removed-completed-task-list-items": "启用移除已办",
       "server-name": "服务器名称",
       "title": "一般设置"
@@ -427,8 +427,8 @@
   "tag": {
     "all-tags": "全部标签",
     "create-tag": "创建标签",
-    "create-tags-guide": "您可以通过输入 “#标签” 创建标签。",
-    "delete-confirm": "您确定要删除此标签吗?所有相关的备忘录将会被归档。",
+    "create-tags-guide": "您可以通过输入 “#标签” 创建标签",
+    "delete-confirm": "您确定要删除此标签吗?所有相关的备忘录将会被归档",
     "delete-tag": "删除标签",
     "new-name": "新名称",
     "no-tag-found": "没找到此标签",
@@ -437,6 +437,6 @@
     "rename-error-repeat": "新名称不能与旧名称相同",
     "rename-success": "重命名成功",
     "rename-tag": "重命名",
-    "rename-tip": "您的所有带有此标签的备忘录将被更新。"
+    "rename-tip": "您的所有带有此标签的备忘录将被更新"
   }
 }

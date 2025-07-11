@@ -220,7 +220,7 @@ const BackToTop = () => {
   }
 
   return (
-    <Button variant="ghost" onClick={scrollToTop}>
+    <Button variant="ghost" onClick={scrollToTop} className="cursor-pointer">
       {t("router.back-to-top")}
       <ArrowUpIcon className="ml-1 w-4 h-auto" />
     </Button>

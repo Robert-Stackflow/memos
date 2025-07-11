@@ -125,6 +125,7 @@ const UserSessionsSection = () => {
                       <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm">
                         <Button
                           variant="ghost"
+                          className="cursor-pointer"
                           disabled={isCurrentSession(userSession)}
                           onClick={() => {
                             handleRevokeSession(userSession);

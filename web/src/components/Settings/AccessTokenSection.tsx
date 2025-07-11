@@ -1,5 +1,5 @@
 import copy from "copy-to-clipboard";
-import { ClipboardIcon, TrashIcon } from "lucide-react";
+import { ClipboardIcon, TrashIcon, PlusIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Button } from "@/components/ui/button";
@@ -68,6 +68,7 @@ const AccessTokenSection = () => {
           </div>
           <div className="mt-4 sm:mt-0">
             <Button color="primary" onClick={handleCreateToken}>
+              <PlusIcon className="w-4 h-4 mr-2" />
               {t("common.create")}
             </Button>
           </div>
@@ -100,7 +101,7 @@ const AccessTokenSection = () => {
                     <tr key={userAccessToken.accessToken}>
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-foreground flex flex-row justify-start items-center gap-x-1">
                         <span className="font-mono">{getFormatedAccessToken(userAccessToken.accessToken)}</span>
-                        <Button variant="ghost" onClick={() => copyAccessToken(userAccessToken.accessToken)}>
+                        <Button variant="ghost" onClick={() => copyAccessToken(userAccessToken.accessToken)} className="cursor-pointer">
                           <ClipboardIcon className="w-4 h-auto text-muted-foreground" />
                         </Button>
                       </td>
@@ -117,6 +118,7 @@ const AccessTokenSection = () => {
                           onClick={() => {
                             handleDeleteAccessToken(userAccessToken);
                           }}
+                          className="cursor-pointer"
                         >
                           <TrashIcon className="text-destructive w-4 h-auto" />
                         </Button>

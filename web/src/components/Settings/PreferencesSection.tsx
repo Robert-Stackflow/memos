@@ -58,7 +58,7 @@ const PreferencesSection = observer(() => {
         <Select value={setting.memoVisibility} onValueChange={handleDefaultMemoVisibilityChanged}>
           <SelectTrigger className="min-w-fit">
             <div className="flex items-center gap-2">
-              <VisibilityIcon visibility={convertVisibilityFromString(setting.memoVisibility)} />
+              {/* <VisibilityIcon visibility={convertVisibilityFromString(setting.memoVisibility)} /> */}
               <SelectValue />
             </div>
           </SelectTrigger>
@@ -67,7 +67,10 @@ const PreferencesSection = observer(() => {
               .map((v) => convertVisibilityToString(v))
               .map((item) => (
                 <SelectItem key={item} value={item} className="whitespace-nowrap">
-                  {t(`memo.visibility.${item.toLowerCase() as Lowercase<typeof item>}`)}
+                  <div className="flex items-center gap-2">
+                    <VisibilityIcon visibility={convertVisibilityFromString(item)} />
+                    {t(`memo.visibility.${item.toLowerCase() as Lowercase<typeof item>}`)}
+                  </div>
                 </SelectItem>
               ))}
           </SelectContent>
